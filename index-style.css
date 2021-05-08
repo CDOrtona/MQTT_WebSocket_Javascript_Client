@@ -1,0 +1,57 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+    background-color: rgb(187, 233, 103)}
+
+.wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+input {
+    width : 150px;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+}
+input[type=button] {
+    background-color: rgb(50, 160, 46);
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+input[type=text]:focus {
+    background-color: lightblue;
+}
+input[type=button]:hover {
+    background-color: rgb(44, 146, 40);
+}
+#messages {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding: 12px;
+    width:100%;
+    display: inline-block;
+    border:1px solid black;
+    background-color: white;
+    max-height: 150px;
+    min-height: 150px;
+    overflow: scroll;
+}
+#messages span {
+    overflow-y: scroll;
+    overflow: scroll;
+}
+

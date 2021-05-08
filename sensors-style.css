@@ -1,0 +1,87 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+    background-color: rgb(187, 233, 103)}
+    
+
+.peripheral-info {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.sensors-list {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    width: 70%;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
+  }
+
+  .grid-container > div {
+      height: auto;
+      height: auto;
+      /*background-color: white;*/
+  }
+
+  /*card which contains sensor info*/
+  .card {
+      height: 230px;
+      width: 250px;
+      background-color: white;
+  }
+
+  /*card shadow*/
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+  }
+
+  .container {
+      font-family: 'Times New Roman', Times, serif;
+      margin-top: 40px;
+
+  }
+
+  #sensor-image {
+      width: 100px;
+      height: 100px;
+      margin-top: 25px;
+      align-self: center;
+  }
+
+
+  /*button*/
+  input[type=button] {
+    background-color: rgb(50, 160, 46);
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+input[type=button]:hover {
+    background-color: rgb(44, 146, 40);
+}
+
+/*hr style*/
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+/*drop down selector*/
+
