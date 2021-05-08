@@ -16,6 +16,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
+    margin-bottom: 15px;
     width: 70%;
     padding-right: 10px;
     padding-left: 10px;
@@ -82,6 +83,14 @@ hr {
     height: 1px;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 }
+
+.copyright {
+    margin-top:15px;
+    text-align:center;
+    font-size:13px;
+    color:rgb(0, 0, 0);
+    margin-bottom:0;
+  }
 
 /*drop down selector*/
 

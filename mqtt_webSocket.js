@@ -71,6 +71,6 @@ function updateScroll() {
 }
 
 // Alert Dialog which pops up if the message received concerns an SOS call sent from the pheriperal 
-function alertDialog(message) {
-    alert("SOS CALL DETECTED" + '<br>' + message.clientID )
+function alertDialog(clientid) {
+    alert("SOS CALL DETECTED" + '<br>' + clientid )
 }
