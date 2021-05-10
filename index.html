@@ -5,14 +5,15 @@
       <title>Control Panel </title>
       <link rel="stylesheet" href="index-style.css">
       <link rel="stylesheet" href="topNav.css">
+      <link rel="stylesheet" href="sensors-style.css">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.2/mqttws31.min.js" type="text/javascript"></script>
       <script src="mqtt_webSocket.js" type="text/javascript"></script>
+
    </head>
    <body>
 
       <div class="topnav" id="myTopnav">
          <a id = "index" href="index.html" class="active">Home</a>
-         <a id = "sensors" href="sensors.html">Sensors Reading</a>
          <a href="https://github.com/CDOrtona">About</a>
          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
          </a>
@@ -22,17 +23,94 @@
          <h1>Control Panel</h1>
          <form id="connection-information-form">
             <b>IP Address:</b> 
-            <input id="host" type="text" name="host" value="test.mosquitto.org"><br>
+            <input id="host" type="text" name="host" value="192.168.1.45"><br>
             <b>Port:</b>
-            <input id="port" type="text" name="port" value="8080"><br>
+            <input id="port" type="text" name="port" value="9001"><br>
             <b>Topic:</b>
-            <input id="topic" type="text" name="topic" value="#"><br><br>
+            <input id="topic" type="text" name="topic" value="test/test1"><br><br>
+            <b>Username:</b>
+            <input id="username" type="text" name="username" value="cPanel"><br>
+            <b>Password:</b> 
+            <input id="password" type="password" name="password" value="pass"><br>
             <input type="button" onclick="startConnect()" value="Connect">
          </form>
          <div id="messages"></div>
       </div>
 
       <hr/>
+     
+       <div class="peripheral-info">
+         <h1>Peripheral Info</h1>
+         <p id="smart-shirt-address"><span style="font-weight: bold;">Smart Shirt Address:</span></p>
+ 
+         <div class="select">
+             <select id="standard-select">
+               <option value="Option 1">Option 1</option>
+               <option value="Option 2">Option 2</option>
+               <option value="Option 3">Option 3</option>
+               <option value="Option 4">Option 4</option>
+               <option value="Option 5">Option 5</option>
+               <option value="Option length">Option that has too long of a value to fit</option>
+             </select>
+             <span class="focus"></span>
+           </div>
+           
+         <input type="button" onclick="startDisconnect()" value="Disconnect">
+       </div>
+  
+       <div class="sensors-list">
+         <div class="grid-container">
+             <div class="grid-item">
+                 <div class="card">
+                     <img id="sensor-image" src="media/temperature.svg" alt="Avatar" style="width:100%">
+                     <div class="container">
+                         <p id=temp>Temp Value</p>
+                     </div>
+                   </div> 
+             </div>
+             <div class="grid-item">
+                 <div class="card">
+                     <img id="sensor-image" src="media/heartbeat.svg" alt="Avatar" style="width:100%">
+                     <div class="container">
+                         <p id=heart>Heartbeat Value</p>
+                     </div>
+                   </div> 
+             </div>
+             <div class="grid-item">
+                 <div class="card">
+                     <img id="sensor-image" src="media/humidity.svg" alt="Avatar" style="width:100%">
+                     <div class="container">
+                         <p id=humidity>Humidity Value</p>
+                     </div>
+                   </div> 
+             </div>
+             <div class="grid-item">
+                 <div class="card">
+                     <img id="sensor-image" src="media/gps.svg" alt="Avatar" style="width:100%">
+                     <div class="container">
+                         <p id=gps>GPS Value</p>
+                     </div>
+                   </div> 
+             </div>
+             <div class="grid-item">
+                 <div class="card">
+                     <img id="sensor-image" src="media/altitude.svg" alt="Avatar" style="width:100%">
+                     <div class="container">
+                         <p id=altitude>Altitude Value</p>
+                     </div>
+                   </div> 
+             </div>
+             <div class="grid-item">
+                 <div class="card">
+                     <img id="sensor-image" src="media/pressure-gauge.svg" alt="Avatar" style="width:100%">
+                     <div class="container">
+                         <p id=pressure name="pressione">Pressure Value</p>
+                     </div>
+                   </div>             
+                 </div>
+           </div> 
+       </div>
+ 
 
       <p class="copyright">CDOrtona © 2021</p>
 

@@ -1,13 +1,16 @@
 var selectedClientID;
+var sensors;
 
 // Called after form input is processed
 function startConnect() {
     // Generate a random client ID
-    clientID = "clientID-" + parseInt(Math.random() * 100);
+    clientID = "clientID-" + "Control Panel";
 
     // Fetch the hostname/IP address and port number from the form
     host = document.getElementById("host").value;
     port = document.getElementById("port").value;
+    user = document.getElementById("username").value;
+    pass = document.getElementById("password").value;
 
     // Print output for the user in the messages div
     document.getElementById("messages").innerHTML += '<span>Connecting to: ' + host + ' on port: ' + port + '</span><br/>';
@@ -16,6 +19,9 @@ function startConnect() {
     // Initialize new Paho client connection
     client = new Paho.MQTT.Client(host, Number(port), clientID);
 
+    //initialize new sensor_listener object
+    //sensors = new listener();
+
     // Set callback handlers
     client.onConnectionLost = onConnectionLost;
     client.onMessageArrived = onMessageArrived;
@@ -23,6 +29,8 @@ function startConnect() {
     // Connect the client, if successful, call onConnect function
     client.connect({ 
         onSuccess: onConnect,
+        userName : user,
+	    password : pass
     });
 
 }
@@ -30,7 +38,7 @@ function startConnect() {
 // Called when the client connects
 function onConnect() {
     // Redirect to the sensors info page
-    window.location.href = "sensors.html";
+    //window.open("sensors.html");
 
     // Fetch the MQTT topic from the form
     topic = document.getElementById("topic").value;
@@ -54,6 +62,15 @@ function onConnectionLost(responseObject) {
 function onMessageArrived(message) {
     console.log("onMessageArrived: " + message.payloadString);
     document.getElementById("messages").innerHTML += '<span>Topic: ' + message.destinationName + '  | ' + message.payloadString + '</span><br/>';
+    //???
+    switch(message.destinationName){
+        case "/test/test2":
+            document.getElementById("temp").innerHTML = message.payloadString;
+            break;
+        case "/test/sos":
+            alertDialog();
+            break;
+    }
     updateScroll(); // Scroll to bottom of window
 }
 
@@ -71,6 +88,6 @@ function updateScroll() {
 }
 
 // Alert Dialog which pops up if the message received concerns an SOS call sent from the pheriperal 
-function alertDialog(clientid) {
-    alert("SOS CALL DETECTED" + '<br>' + clientid )
+function alertDialog() {
+    alert("SOS CALL DETECTED")
 }

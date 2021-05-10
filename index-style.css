@@ -22,6 +22,13 @@ input[type=text] {
     padding: 12px 20px;
     margin: 8px 0;
 }
+
+input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+}
+
 input[type=button] {
     background-color: rgb(50, 160, 46);
     border: none;
@@ -32,12 +39,19 @@ input[type=button] {
     margin: 4px 2px;
     cursor: pointer;
 }
+
 input[type=text]:focus {
     background-color: lightblue;
 }
+
+input[type=password]:focus {
+    background-color: lightblue;
+}
+
 input[type=button]:hover {
     background-color: rgb(44, 146, 40);
 }
+
 #messages {
     margin-top: 12px;
     margin-bottom: 12px;
