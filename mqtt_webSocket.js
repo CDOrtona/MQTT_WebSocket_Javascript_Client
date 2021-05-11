@@ -62,7 +62,6 @@ function onConnectionLost(responseObject) {
 function onMessageArrived(message) {
     console.log("onMessageArrived: " + message.payloadString);
     document.getElementById("messages").innerHTML += '<span>Topic: ' + message.destinationName + '  | ' + message.payloadString + '</span><br/>';
-    //???
     switch(message.destinationName){
         case "30:AE:A4:F5:88:6E/temp":
             document.getElementById("temp").innerHTML = message.payloadString;
