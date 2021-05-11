@@ -64,11 +64,24 @@ function onMessageArrived(message) {
     document.getElementById("messages").innerHTML += '<span>Topic: ' + message.destinationName + '  | ' + message.payloadString + '</span><br/>';
     //???
     switch(message.destinationName){
-        case "/test/test2":
+        case "30:AE:A4:F5:88:6E/temp":
             document.getElementById("temp").innerHTML = message.payloadString;
             break;
-        case "/test/sos":
-            alertDialog();
+        case "30:AE:A4:F5:88:6E/humidity":
+            document.getElementById("humidity").innerHTML = message.payloadString;
+            break;
+        case "30:AE:A4:F5:88:6E/pressure":
+            document.getElementById("pressure").innerHTML = message.payloadString;
+            break;
+        case "30:AE:A4:F5:88:6E/altitude":
+            document.getElementById("altitude").innerHTML = message.payloadString;
+            break;
+        case "30:AE:A4:F5:88:6E/sos":
+            
+            if(message.payloadString == "ON"){
+                alert("SOS DETECTED!" + '<br>' +  "HERE'S THE LOCATION OF THE USER: ")
+                window.open("http://www.google.com/maps/place/42.34,14.22");
+            }
             break;
     }
     updateScroll(); // Scroll to bottom of window
@@ -85,9 +98,4 @@ function startDisconnect() {
 function updateScroll() {
     var element = document.getElementById("messages");
     element.scrollTop = element.scrollHeight;
-}
-
-// Alert Dialog which pops up if the message received concerns an SOS call sent from the pheriperal 
-function alertDialog() {
-    alert("SOS CALL DETECTED")
 }
