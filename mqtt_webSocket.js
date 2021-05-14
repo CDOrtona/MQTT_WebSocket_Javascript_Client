@@ -78,7 +78,8 @@ function onMessageArrived(message) {
         case "30:AE:A4:F5:88:6E/sos":
             
             if(message.payloadString == "ON"){
-                alert("SOS DETECTED!" + '<br>' +  "HERE'S THE LOCATION OF THE USER: ")
+                alert("SOS DETECTED!" + '\n\n' +  "Click OK to view user's location ")
+                //to be fixed
                 window.open("http://www.google.com/maps/place/42.34,14.22");
             }
             break;
