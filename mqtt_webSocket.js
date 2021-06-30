@@ -37,9 +37,7 @@ function startConnect() {
 
 // Called when the client connects
 function onConnect() {
-    // Redirect to the sensors info page
-    //window.open("sensors.html");
-
+   
     // Fetch the MQTT topic from the form
     topic = document.getElementById("topic").value;
 
@@ -48,6 +46,8 @@ function onConnect() {
 
     // Subscribe to the requested topic
     client.subscribe(topic);
+    // always subscribe to the emergency/sos token, since it's issued by any device
+    client.subscribe("emergency/sos") 
 }
 
 // Called when the client loses its connection
@@ -75,13 +75,18 @@ function onMessageArrived(message) {
         case "30:AE:A4:F5:88:6E/altitude":
             document.getElementById("altitude").innerHTML = message.payloadString;
             break;
-        case "30:AE:A4:F5:88:6E/sos":
-            
-            if(message.payloadString == "ON"){
+        case "emergency/sos":
+
+            obj = JSON.parse(message.payloadString);
+            alert("SOS DETECTED FROM" + obj.sender + '\n\n' +  "Click OK to view user's location ")
+            var position = 'http://www.google.com/maps/place/' + obj.position;
+            window.open(position);
+
+            /*if(message.payloadString == "ON"){
                 alert("SOS DETECTED!" + '\n\n' +  "Click OK to view user's location ")
                 //to be fixed
                 window.open("http://www.google.com/maps/place/42.34,14.22");
-            }
+            }*/
             break;
     }
     updateScroll(); // Scroll to bottom of window
