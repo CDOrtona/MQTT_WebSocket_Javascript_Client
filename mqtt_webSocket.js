@@ -78,15 +78,9 @@ function onMessageArrived(message) {
         case "emergency/sos":
 
             obj = JSON.parse(message.payloadString);
-            alert("SOS DETECTED FROM" + obj.sender + '\n\n' +  "Click OK to view user's location ")
-            var position = 'http://www.google.com/maps/place/' + obj.position;
+            alert("SOS DETECTED FROM " + obj.sender + '\n\n' +  "Click OK to view user's location ")
+            var position = 'http://www.google.com/maps/place/' + obj.position
             window.open(position);
-
-            /*if(message.payloadString == "ON"){
-                alert("SOS DETECTED!" + '\n\n' +  "Click OK to view user's location ")
-                //to be fixed
-                window.open("http://www.google.com/maps/place/42.34,14.22");
-            }*/
             break;
     }
     updateScroll(); // Scroll to bottom of window
