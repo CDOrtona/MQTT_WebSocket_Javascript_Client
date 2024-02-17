@@ -2,7 +2,7 @@
   <h1>MQTT Web-socket Client</h1>
   
   <p>
-    This is part of [THIS PROJECT](https://github.com/CDOrtona/RUN.IO)
+    This is part of <a href="https://github.com/CDOrtona/RUN.IO">This Project</a> 
   </p>
 
   
