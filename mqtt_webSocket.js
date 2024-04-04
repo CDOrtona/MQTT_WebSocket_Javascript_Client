@@ -17,7 +17,7 @@ function startConnect() {
     document.getElementById("messages").innerHTML += '<span>Using the following client value: ' + clientID + '</span><br/>';
 
     // Initialize new Paho client connection
-    client = new Paho.MQTT.Client(host, Number(port), clientID);
+    client = new Paho.Client(host, Number(port), clientID);
 
     //initialize new sensor_listener object
     //sensors = new listener();
